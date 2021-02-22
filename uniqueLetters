@@ -1,0 +1,33 @@
+<?php
+$inputData = "";
+while ($line = fgets(STDIN)){
+    $inputData .= $line;
+}
+
+function codeHere($inputData) {
+    $chars = array();
+    $sizeArr = 0;
+    for($i = 0; $i <= strlen($inputData); $i++){
+         if (sizeof($chars) == 0){
+            $chars[0] = $inputData{$i};
+         }
+         else {
+             $isUnique = true;
+             $uniqueChar = "";
+             for($j = 0; $j <= sizeof($chars); $j++){
+                 
+                 if ($chars[$j] == $inputData{$i}){
+                     $isUnique = false;
+                     break;
+                 }
+             }
+             if($isUnique){
+                 array_push($chars, $inputData{$i});
+             }
+         }
+    }
+    $inputData = count($chars);
+    return $inputData;
+}
+
+echo codeHere($inputData);
